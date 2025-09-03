@@ -1,2 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+
+
+class program
+{
+    public static void Main()
+    {
+        text_based_adventure_app app = new text_based_adventure_app();
+    }
+}
