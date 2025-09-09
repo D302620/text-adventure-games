@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace text_based_adventure
 {
-    internal class Items
+    public class Items
     {
     }
 }

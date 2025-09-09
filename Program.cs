@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-class program
+class Program
 {
     public static void Main()
     {
