@@ -18,9 +18,20 @@ namespace text_based_adventure
 
         public List<Items> Items { get; set; }
 
+        //create new game
         public Player(string name) 
         {
             Name = name;
+            Money = 0;
+            Strength = 1;
+            Speed = 1;
+            Story = 1;
+            Objective = "find a quest";
+            Items = new List<Items>();
+        }
+        // loading save game
+        public Player()
+        {
             Money = 0;
             Strength = 1;
             Speed = 1;
