@@ -11,12 +11,13 @@ namespace text_based_adventure
         public string Name { get; set; }
         public int Money { get; set; }
         public int Strength { get; set; }
+        public int Health { get; set; }
         public int Speed { get; set; }
         public int Story { get; set; }
         
         public string Objective { get; set; }
 
-        public List<Items> Items { get; set; }
+        public List<Item> Items { get; set; }
 
         //create new game
         public Player(string name) 
@@ -24,20 +25,22 @@ namespace text_based_adventure
             Name = name;
             Money = 0;
             Strength = 1;
+            Health = 100;
             Speed = 1;
             Story = 1;
             Objective = "find a quest";
-            Items = new List<Items>();
+            Items = new List<Item>();
         }
         // loading save game
         public Player()
         {
             Money = 0;
             Strength = 1;
+            Health = 100;
             Speed = 1;
             Story = 1;
             Objective = "find a quest";
-            Items = new List<Items>();
+            Items = new List<Item>();
         }
     }
 }
