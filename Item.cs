@@ -37,6 +37,15 @@ namespace text_based_adventure
 
         }
 
+        public Item CastleLoot()
+        {
+            List<Item> list = new List<Item>();
+            list.Add(new Item("ancient necklace", "it looks to be a necklace from a time long past. could be worth a lot", 50, 0, 0));
+            list.Add(new Item("Old spell book", "a rare spell book from ancient times. The knowledge lost to time", 60, 0, 0));
+
+            Random random = new Random();
+            return list[random.Next(0, list.Count())];
+        }
         public List<Item> ShopItems()
         {
             List<Item> list = new List<Item>();
