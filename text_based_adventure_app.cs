@@ -157,7 +157,7 @@ public class text_based_adventure_app
 		{
 			Console.Clear();
             Console.WriteLine("the board says: welcome travelers below is information you might want to know on you travels");
-            Console.WriteLine("\nyou see the options: \n1. Making choises\n 2.the inn\n3. shop\n4. searching\n");
+            Console.WriteLine("\nyou see the options: \n1. Making choises\n2. the inn\n3. shop\n4. searching\n");
 			string choice = Console.ReadLine();
 			Console.Clear();
 			switch (choice) 
@@ -175,7 +175,7 @@ public class text_based_adventure_app
                     Console.ReadLine();
                     break;
 				case "4":
-                    Console.WriteLine("you can search unexplored area's to find new items for money or for use. different locations might give you different items");
+                    Console.WriteLine("you can search unexplored area's to find new items for money or for use.\ndifferent locations might give you different items");
                     Console.ReadLine();
                     break;
 				default :
@@ -184,11 +184,55 @@ public class text_based_adventure_app
             }
 
         }
-		
-		
+				
 	}
 
-	public void EndGame(int ending)
+    public void Fortune(Player character)
+    {
+        Console.Clear();
+        if (character.Money < 20)
+        {
+            Console.WriteLine("you don't have enough gold to get a fortune");
+            Console.ReadLine();
+        }
+        else
+        {
+            Console.WriteLine("it costs 20 gold to get you fortune. do you want to continue\n\n1. get fortune read");
+            string choice = Console.ReadLine();
+            if (choice == "1")
+            {
+                character.Money -= 20;
+				Console.Clear();
+                switch (character.Story)
+                {
+                    case 1:
+                        Console.WriteLine("fortune teller: i can see your journey will take you to the tavern.\nthere you will find a wise man in need of help");
+                        Console.ReadLine();
+                        break;
+                    case 2:
+                        Console.WriteLine("fortune teller: i can see dog in need of help. hiding in the bushes of the forest, there is where you will find your missing friend");
+                        Console.ReadLine();
+                        break;
+                    case 3:
+                        Console.WriteLine("fortune teller: you must return to the place where your journey started. someone there will show you the way");
+                        Console.ReadLine();
+                        break;
+                    case 4:
+                        Console.WriteLine("fortune teller: i see a castle deep in the forest barred behind a gate.\nthe key for this gate might be closer then you think");
+                        Console.ReadLine();
+                        break;
+                    case 5:
+                        Console.WriteLine("fortune teller: i see a long staircase before you. \nat the end of this staircase i can sense an important choice will be bestowed upon you");
+                        Console.ReadLine();
+                        break;
+					default:
+						break;
+                }
+            }
+        }
+    }
+
+    public void EndGame(int ending)
 	{
 		// all endings and normal game exit
 		Console.Clear();
@@ -225,7 +269,7 @@ public class text_based_adventure_app
             ShowInfo(character);
             Console.WriteLine("Town center");
             Console.WriteLine("your standing in the town center. there is not much around except for an inn a shop and a bar");
-            Console.WriteLine("\nwhat do you want to do:\n\n1. inn \n2. tavern\n3. shop\n4. instruction board\n5.\n6. forest");
+            Console.WriteLine("\nwhat do you want to do:\n\n1. inn \n2. tavern\n3. shop\n4. instruction board\n5. fortune teller\n6. forest");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -240,6 +284,9 @@ public class text_based_adventure_app
 					break;
 				case "4":
 					Info();
+					break;
+				case "5":
+					Fortune(character);
 					break;
 				case "6":
 					Forest(character);
@@ -444,6 +491,9 @@ public class text_based_adventure_app
 					{
 						csv.WriteRecords(Items);
 					}
+					Console.Clear();
+					Console.WriteLine("game saved");
+					Console.ReadLine();
                     break;
 				case "4":
 					EndGame(0);

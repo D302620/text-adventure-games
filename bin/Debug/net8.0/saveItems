@@ -1,3 +1,5 @@
 Name,Description,Worth,Healing,Damage
-old knife,a rusty looking old knife. could propably be used once more,5,0,3
 dog,the dog of the old man you have been asked to receive,0,0,0
+health potion,a normal health potion,10,20,0
+old knife,a rusty looking old knife. could propably be used once more,5,0,3
+health potion,a normal health potion,10,20,0
