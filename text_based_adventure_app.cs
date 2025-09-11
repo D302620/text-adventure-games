@@ -51,7 +51,7 @@ public class text_based_adventure_app
 				NewGame();
             }
 		}
-		// get Player Items
+		// get Player Items from seperate csv
         using (var reader = new StreamReader("saveItems"))
         using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
         {
@@ -145,13 +145,14 @@ public class text_based_adventure_app
 		Console.Clear();
 		foreach (Item item in items) 
 		{
-			Console.WriteLine($"{count}: {item.Name}");
+			Console.WriteLine($"{count}: {item.Name} - ({item.Worth}) gold");
 			count++;
 		}
 	}
 
 	public void Info()
 	{
+		// info for the user about the game. describes the basic mechanics of the game
 		bool looking = true;
 		while(looking)
 		{
@@ -189,6 +190,7 @@ public class text_based_adventure_app
 
     public void Fortune(Player character)
     {
+		// give hint to player when stuck. baced of the current story plot
         Console.Clear();
         if (character.Money < 20)
         {
@@ -203,6 +205,7 @@ public class text_based_adventure_app
             {
                 character.Money -= 20;
 				Console.Clear();
+				//check what part of the story the player is on
                 switch (character.Story)
                 {
                     case 1:
@@ -324,6 +327,7 @@ public class text_based_adventure_app
 					{
 						//remove item from player inventory and add gold amount
 						Item item = character.Items[int.Parse(itemChoice) - 1];
+						//check if the item is a story item
 						if (item.Name == "dog")
 						{
 							EndGame(1);
@@ -341,6 +345,7 @@ public class text_based_adventure_app
 					}
                     break;
 				case "2":
+					//get list from item class
 					List<Item> itemList = items.ShopItems();
 					ShowItems(itemList);
 					Console.WriteLine("what would you like to buy");
